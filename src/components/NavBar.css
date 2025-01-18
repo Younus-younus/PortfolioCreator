@@ -3,3 +3,22 @@
     height: 80px !important;
     color: white !important;
 }
+.navbtn {
+    background-color: rgb(22, 22, 165);
+}
+.navbar-collapse.show .nav-link {
+    color: #000; /* Adjust to a readable color */
+}
+/* Background color when navbar is expanded */
+.navbar-collapse.show {
+    background-color: #13314e; /* Change this to your desired color */
+    padding: 1rem;
+    border-radius: 1rem;
+    opacity: 0.9;
+    transition: background-color 0.3s ease;
+}
+/* Expanded background using React state */
+.expanded-bg {
+    background-color: #f8f9fa; /* Change to your desired color */
+    transition: background-color 0.3s ease;
+}

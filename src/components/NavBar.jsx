@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useLocation } from "react-router-dom";
 
@@ -7,7 +7,12 @@ import "./NavBar.css";
 
 export default function NavBar() {
     const { isLoggedIn, logout } =  useContext(AuthContext);
+    const [isExpanded, setIsExpanded] = useState(false);
     const location = useLocation();
+
+    const handleToggle = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
@@ -15,23 +20,16 @@ export default function NavBar() {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg sticky-top nav-underline">
+        <nav className="navbar navbar-expand-lg sticky-top nav-underline bg-body-tertiary">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     <b>Resume</b>
                 </Link>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
+                <button className="navbar-toggler navbtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={isExpanded}
                     aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                    onClick={handleToggle}>
+                <span className="navbar-toggler-icon"></span></button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link
