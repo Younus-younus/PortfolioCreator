@@ -1,6 +1,7 @@
 import './HomePage.css';
 import React, { useEffect, useState } from 'react';
 import logo from "../assets/Logo.jpg"
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
     
@@ -17,12 +18,12 @@ export default function HomePage() {
                         a well-crafted resume helps you showcase your skills, achievements, and potential in a way that stands out.<br />
                         Take the first step by creating a resume that reflects the best version of yourself.
                     </p>
-                    <a href="/new-portfolio" className="btn btn-primary">Let's Create!</a>
+                    <Link to="/new-portfolio" className="btn btn-primary">Let's Create!</Link>
                 </div>
             </div>
 
             <h5 className="mx-5">Other's Resume</h5>
-            <a href="/author-portfolio">
+            <Link to="/author-portfolio">
                 <div className="card mb-3 mx-5 lists" >
                     <div className="row g-0">
                         <div className="col-md-2">
@@ -41,7 +42,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </a>
+            </>
         </>
     );
 }
