@@ -11,7 +11,7 @@ const root = createRoot(rootElement);
 root.render(
     <React.StrictMode>
         <AuthProvider>
-        <BrowserRouter future={{ v7_relativeSplatPath: true }} basename="/PortfolioGenerator/">
+        <BrowserRouter future={{ v7_relativeSplatPath: true }} basename="/PortfolioCreator/">
                 <App />
             </BrowserRouter>
         </AuthProvider>
