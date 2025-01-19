@@ -12,8 +12,8 @@ export default function HomePage() {
                     Featured
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title">Create A Resume For You</h5>
-                    <p className="card-text">
+                    <h5 className="card-title headtxt">Create A Resume For You</h5>
+                    <p className="card-text hmtxt">
                         Whether you're a student, a fresh graduate, or an experienced professional,<br />
                         a well-crafted resume helps you showcase your skills, achievements, and potential in a way that stands out.<br />
                         Take the first step by creating a resume that reflects the best version of yourself.
@@ -36,7 +36,7 @@ export default function HomePage() {
                                     FullStack Developer
                                 </p>
                                 <span>
-                                    <i>View This</i>&nbsp; <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <i>View This</i>&nbsp; <i className="fa-solid fa-arrow-up-right-from-square"></i>
                                 </span>
                             </div>
                         </div>

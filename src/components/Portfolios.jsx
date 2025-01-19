@@ -45,7 +45,7 @@ export default function Portfolios() {
                                             FullStack Developer
                                         </p>
                                         <span>
-                                            <i>View This</i>&nbsp; <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            <i>View This</i>&nbsp; <i className="fa-solid fa-arrow-up-right-from-square"></i>
                                         </span>
                                     </div>
                                 </div>

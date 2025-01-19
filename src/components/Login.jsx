@@ -70,7 +70,7 @@ export default function Login() {
                             className="btn hide-show"
                             onClick={togglePasswordVisibility}
                         >
-                            {showPassword ? <i class="fa-solid fa-eye-slash"></i> : <i class="fa-solid fa-eye"></i>}
+                            {showPassword ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>}
                         </button>
                     </div>
                 </div>
