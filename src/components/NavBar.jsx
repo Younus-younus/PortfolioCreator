@@ -10,7 +10,9 @@ export default function NavBar() {
     const [isExpanded, setIsExpanded] = useState(false);
     const location = useLocation();
 
-
+    const handleToggle = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
