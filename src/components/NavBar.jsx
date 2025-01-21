@@ -28,7 +28,7 @@ export default function NavBar() {
                 <button className="navbar-toggler navbtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={isExpanded}
                     aria-label="Toggle navigation"
                     onClick={handleToggle}>
-                <span className="navbar-toggler-icon"></span></button>
+                <i className="fa-solid fa-bars"></i></button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item">

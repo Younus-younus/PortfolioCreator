@@ -5,6 +5,8 @@
 }
 .navbtn {
     background-color: rgb(22, 22, 165);
+    border: 1px solid white;
+    padding-bottom: 0.5rem;
 }
 .navbar-collapse.show .nav-link {
     color: #000; /* Adjust to a readable color */
@@ -19,6 +21,9 @@
 }
 /* Expanded background using React state */
 .expanded-bg {
-    background-color: #f8f9fa; /* Change to your desired color */
+    background-color: #838586; /* Change to your desired color */
     transition: background-color 0.3s ease;
+}
+.fa-bars {
+    color: white;
 }

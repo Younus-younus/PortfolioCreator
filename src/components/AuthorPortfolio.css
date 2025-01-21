@@ -28,7 +28,9 @@
     opacity: 1;
     cursor: pointer;
 }
-
+.des {
+    opacity: 0.8;
+}
 .image{
     width: 259px;
     height: 248px;
@@ -62,4 +64,67 @@ button {
 }
 button:hover {
     opacity: 1;
+}
+
+@media screen and (max-width: 740px) {
+    .leftPanel {
+        width: 200px !important;
+    }
+    .image{
+        width: 150px;
+        height: 150px;
+    }
+    .rightPanel {
+        margin-left: 12rem;
+    }
+}
+
+@media screen and (max-width: 564px) {
+    .des {
+        font-size: small;
+    }
+    .leftPanel {
+        width: 120px !important;
+    }
+    .image{
+        width: 100px;
+        height: 100px;
+    }
+    .rightPanel {
+        margin-left: 7rem;
+    }
+}
+@media screen and (max-width: 484px) {
+    .rightPanel li {
+        opacity: 0.8;
+        font-size: small;
+        margin-left: 0rem;
+    }
+}
+@media screen and (max-width: 564px) {
+    .des {
+        font-size: 10px;
+    }
+    h6 {
+        font-size: 15px;
+    }
+    strong {
+        font-size: small;
+    }
+}
+
+@media screen and (max-width: 328px) {
+    .leftPanel {
+        width: 100px !important;
+    }
+    .image{
+        width: 80px;
+        height: 80px;
+    }
+    .leftPanel button {
+        font-size: small;
+    }
+    .rightPanel {
+        margin-left: 5.5rem;
+    }
 }

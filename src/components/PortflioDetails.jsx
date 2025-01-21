@@ -94,7 +94,7 @@ const PortfolioDetails = () => {
                     </div>
                     <div id="contact">
                     <h6>Description</h6>
-                        <p>
+                        <p  className="des">
                         {portfolio.description || "No description available"}
                         </p>
                     </div>

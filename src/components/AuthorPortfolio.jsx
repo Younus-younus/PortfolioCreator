@@ -59,7 +59,7 @@ export default function AuthorPortfolio() {
                     </div>
                     <div id="contact">
                         <h6>Description</h6>
-                        <p>
+                        <p className="des">
                             As a passionate fullstack developer, I have experience building dynamic and responsive web
                             applications from front to back. I am proficient in HTML, CSS, JavaScript, and React.js for
                             creating user-friendly interfaces and the backend to make it fully functional and usable.
