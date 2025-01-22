@@ -97,8 +97,11 @@ button:hover {
 @media screen and (max-width: 484px) {
     .rightPanel li {
         opacity: 0.8;
-        font-size: small;
+        font-size: 10px;
         margin-left: 0rem;
+    }
+    .leftPanel button {
+        font-size: 10px;
     }
 }
 @media screen and (max-width: 564px) {
@@ -121,9 +124,7 @@ button:hover {
         width: 80px;
         height: 80px;
     }
-    .leftPanel button {
-        font-size: small;
-    }
+
     .rightPanel {
         margin-left: 5.5rem;
     }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
@@ -40,7 +40,7 @@ export default function Login() {
 
     return (
         <div className="loginForm offset-4 mt-4">
-            <form className="mx-3" onSubmit={handleLogin}>
+            <form className="mx-3 forms" onSubmit={handleLogin}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputUser1" className="form-label">
                         Username
@@ -78,7 +78,7 @@ export default function Login() {
                     <button type="submit" className="btn btn-primary">
                         Submit
                     </button>
-                    <p>Don't have Account <i><a href="signin"><u>signup</u></a></i></p>
+                    <p>Don't have Account <i><Link to="signin"><u>signup</u></Link></i></p>
                 </div>
             </form>
         </div>

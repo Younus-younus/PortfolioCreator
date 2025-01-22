@@ -1,9 +1,35 @@
 .loginForm {
-    width: 30%;
+    width: 500px;
     border: 1px solid white;
     border-radius: 0.8rem;
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
 }
 .hide-show {
     border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .loginForm {
+        margin-left: 5rem !important;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .loginForm {
+        margin-left: 1rem !important;
+    }
+}
+@media screen and (max-width: 544px) {
+    .loginForm {
+        width: 90% !important;
+    }
+    .forms label{
+        font-size: 15px;
+    }
+    .forms input,p,Link {
+        font-size: 15px;
+    }
+    .hide-show {
+        font-size: 10px;
+    }
 }

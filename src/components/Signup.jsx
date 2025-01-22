@@ -34,7 +34,7 @@ export default function Signup() {
 
     return (
         <div className="loginForm offset-4 mt-4">
-            <form className="mx-3" onSubmit={handleSubmit}>
+            <form className="mx-3 forms" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Email address
@@ -47,9 +47,6 @@ export default function Signup() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <p id="emailHelp">
-                        <i>We'll never share your email with anyone else.</i>
-                    </p>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputUser" className="form-label">
