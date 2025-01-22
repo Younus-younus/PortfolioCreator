@@ -39,7 +39,7 @@ export default function NewPortfolio() {
     
         try {
             const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
-            const response = await fetch("http://localhost:5001/new/portfolio", {
+            const response = await fetch("http://localhost:5001/api/resumes/new-portfolio", {
                 method: "POST",
                 body: data,
                 headers: {

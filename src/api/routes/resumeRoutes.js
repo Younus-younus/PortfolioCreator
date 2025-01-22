@@ -7,7 +7,7 @@ const upload = multer({ dest: 'uploads/' });
 
 const router = express.Router();
 
-router.post('/portfolio', upload.single('image'),isLoggedIn,newPortfolio);
+router.post('/new-portfolio', upload.single('image'),isLoggedIn,newPortfolio);
 router.get('/portfolios',Portfolios)
 router.get("/portfolio/:id",show);
 
