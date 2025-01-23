@@ -7,46 +7,119 @@ export default function AuthorPortfolio() {
             <div className="container1">
                 <div className="leftPanel">
                     <div>
-                        <img src={logo} alt="Profile" className="image" />
+                        <img src={logo} alt="Profile" className="image holographic-card" />
                     </div>
                     <div>
                         <button
-                            className="nav-link"
-                            onClick={() =>
-                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })
+                            className="nav-link hover-underline"
+                            onClick={(event) => {
+                                const hovering = document.getElementById('contact');
+                                hovering.scrollIntoView({ behavior: 'smooth' });
+                                hovering.classList.add('changebackground');
+                                const button = event.target;
+
+                                button.classList.add('button-click-effect'); // Add the class
+
+                                setTimeout(() => {
+                                    button.classList.remove('button-click-effect'); // Remove the class after 1 second
+                                }, 1000); 
+                                // Optional: Remove the class after a delay
+                                setTimeout(() => {
+                                    hovering.classList.remove('changebackground');
+                                }, 1000); 
+                            }
                             }
                         >
                             Contact
                         </button>
+                        <br />
                         <button
-                            className="nav-link"
-                            onClick={() =>
-                                document.getElementById('education').scrollIntoView({ behavior: 'smooth' })
+                            className="nav-link hover-underline"
+                            onClick={(event) => {
+                                const hovering = document.getElementById('education');
+                                hovering.scrollIntoView({ behavior: 'smooth' });
+                                hovering.classList.add('changebackground');
+                                const button = event.target;
+
+                                button.classList.add('button-click-effect'); // Add the class
+
+                                setTimeout(() => {
+                                    button.classList.remove('button-click-effect'); // Remove the class after 1 second
+                                }, 1000); 
+                                // Optional: Remove the class after a delay
+                                setTimeout(() => {
+                                    hovering.classList.remove('changebackground');
+                                }, 1000); 
+                            }
                             }
                         >
                             Education
                         </button>
+                        <br />
                         <button
-                            className="nav-link"
-                            onClick={() =>
-                                document.getElementById('expertise').scrollIntoView({ behavior: 'smooth' })
+                            className="nav-link hover-underline"
+                            onClick={(event) => {
+                                const hovering = document.getElementById('expertise');
+                                hovering.scrollIntoView({ behavior: 'smooth' });
+                                hovering.classList.add('changebackground');
+                                const button = event.target;
+
+                                button.classList.add('button-click-effect'); // Add the class
+
+                                setTimeout(() => {
+                                    button.classList.remove('button-click-effect'); // Remove the class after 1 second
+                                }, 1000); 
+                                // Optional: Remove the class after a delay
+                                setTimeout(() => {
+                                    hovering.classList.remove('changebackground');
+                                }, 1000); 
+                            }
                             }
                         >
                             Expertise
                         </button>
+                        <br />
                         <button
-                            className="nav-link"
-                            onClick={() =>
-                                document.getElementById('interest').scrollIntoView({ behavior: 'smooth' })
+                            className="nav-link hover-underline"
+                            onClick={(event) => {
+                                const hovering = document.getElementById('interest');
+                                hovering.scrollIntoView({ behavior: 'smooth' });
+                                hovering.classList.add('changebackground');
+                                const button = event.target;
+
+                                button.classList.add('button-click-effect'); // Add the class
+
+                                setTimeout(() => {
+                                    button.classList.remove('button-click-effect'); // Remove the class after 1 second
+                                }, 1000); 
+                                // Optional: Remove the class after a delay
+                                setTimeout(() => {
+                                    hovering.classList.remove('changebackground');
+                                }, 1000);
+                            }
                             }
                         >
                             Interest
                         </button>
+                        <br />
                         <button
-                            className="nav-link"
-                            onClick={() =>
-                                document.getElementById('language').scrollIntoView({ behavior: 'smooth' })
-                            }
+                            className="nav-link hover-underline"
+                            onClick={(event) => {
+                                const hovering = document.getElementById('language');
+                                hovering.scrollIntoView({ behavior: 'smooth' });
+                                hovering.classList.add('changebackground');
+                                const button = event.target;
+
+                                button.classList.add('button-click-effect'); // Add the class
+
+                                setTimeout(() => {
+                                    button.classList.remove('button-click-effect'); // Remove the class after 1 second
+                                }, 1000); 
+                                // Optional: Remove the class after a delay
+                                setTimeout(() => {
+                                    hovering.classList.remove('changebackground');
+                                }, 5000); // Adjust the timeout as needed// Set the desired background color
+                            }}
                         >
                             Language
                         </button>
@@ -57,7 +130,7 @@ export default function AuthorPortfolio() {
                         <h2>Younus</h2>
                         <h5>FullStack Developer</h5>
                     </div>
-                    <div id="contact">
+                    <div>
                         <h6>Description</h6>
                         <p className="des">
                             As a passionate fullstack developer, I have experience building dynamic and responsive web
@@ -66,16 +139,16 @@ export default function AuthorPortfolio() {
                         </p>
                     </div>
                     <hr />
-                    <div>
-                        <h6 id="education">Contact Info</h6>
+                    <div  id="contact">
+                        <h6 >Contact Info</h6>
                         <ul>
                             <li><strong>Gmail:</strong> sayeedataj37@gmail.com</li>
                             <li><strong>Phone:</strong> 8123412145</li>
                         </ul>
                     </div>
                     <hr />
-                    <div>
-                        <h6 id="expertise">Education Info</h6>
+                    <div id="education">
+                        <h6 >Education Info</h6>
                         <ul>
                             <li><strong>PUC:</strong> Sacred Heart PU College</li>
                             <li><strong>Course:</strong> CEBA</li>
@@ -84,8 +157,8 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div>
-                        <h6 id="interest">Skills and Expertise</h6>
+                    <div id="expertise">
+                        <h6 >Skills and Expertise</h6>
                         <ul>
                             <li>
                                 <strong>Frontend Development:</strong>
@@ -110,8 +183,8 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div>
-                        <h6 id="language">Interests</h6>
+                    <div id="interest">
+                        <h6 >Interests</h6>
                         <ul>
                             <li>Chess</li>
                             <li>Cricket</li>
@@ -119,7 +192,7 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div>
+                    <div id="language">
                         <h6>Languages Known</h6>
                         <ul>
                             <li>English</li>
