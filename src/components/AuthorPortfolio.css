@@ -135,6 +135,19 @@ button {
       transform: translate(0);
     }
   }
+.hoverstyle:hover {
+    padding-left: 1rem;
+}
+
+
+
+
+
+
+
+
+
+/* resposiveness */
 @media screen and (max-width: 740px) {
     .leftPanel {
         width: 200px !important;

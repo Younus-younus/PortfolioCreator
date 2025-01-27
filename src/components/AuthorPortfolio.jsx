@@ -130,7 +130,7 @@ export default function AuthorPortfolio() {
                         <h2>Younus</h2>
                         <h5>FullStack Developer</h5>
                     </div>
-                    <div>
+                    <div className="hoverstyle">
                         <h6>Description</h6>
                         <p className="des">
                             As a passionate fullstack developer, I have experience building dynamic and responsive web
@@ -139,7 +139,7 @@ export default function AuthorPortfolio() {
                         </p>
                     </div>
                     <hr />
-                    <div  id="contact">
+                    <div  id="contact" className="hoverstyle">
                         <h6 >Contact Info</h6>
                         <ul>
                             <li><strong>Gmail:</strong> sayeedataj37@gmail.com</li>
@@ -147,7 +147,7 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div id="education">
+                    <div id="education" className="hoverstyle">
                         <h6 >Education Info</h6>
                         <ul>
                             <li><strong>PUC:</strong> Sacred Heart PU College</li>
@@ -157,7 +157,7 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div id="expertise">
+                    <div id="expertise" className="hoverstyle">
                         <h6 >Skills and Expertise</h6>
                         <ul>
                             <li>
@@ -183,7 +183,7 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div id="interest">
+                    <div id="interest" className="hoverstyle">
                         <h6 >Interests</h6>
                         <ul>
                             <li>Chess</li>
@@ -192,7 +192,7 @@ export default function AuthorPortfolio() {
                         </ul>
                     </div>
                     <hr />
-                    <div id="language">
+                    <div id="language" className="hoverstyle">
                         <h6>Languages Known</h6>
                         <ul>
                             <li>English</li>
