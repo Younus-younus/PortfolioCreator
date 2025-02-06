@@ -28,8 +28,11 @@ app.use(
 );
 const upload = multer({ dest: path.join(__dirname, "uploads") });
 
-const staticFolder = "dist"; // Adjust if your build folder is named differently
-app.use(express.static(path.join(__dirname, staticFolder)));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
     setHeaders: (res, filePath) => {
@@ -44,11 +47,6 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
 // Routes
 app.use("/api/auth", authRoutes); // Group auth-related routes
 app.use("/api/resumes", resumeRoutes);
-
-// Catch-all route for React
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, staticFolder, "index.html"));
-});
 
 // Start the server
 app.listen(PORT, () => {
