@@ -5,30 +5,6 @@ const prisma = new PrismaClient({
     log: ['query', 'info', 'warn', 'error'],
 });
 
-export const Portfolios = async (req, res) => {
-    try {
-        const portfolios = await prisma.portfolio.findMany({
-            include: {
-                images: { take: 1 },
-                _count: { select: { likes: true } },
-            },
-        });
-
-        const portfolioData = portfolios.map((portfolio) => ({
-            ...portfolio,
-            image_url: portfolio.images?.[0]?.imageUrl,
-            like_count: portfolio._count.likes,
-            describeYou: portfolio.describeYou,
-        }));
-
-        res.setHeader('Content-Type', 'application/json');
-        res.json({ portfolios: portfolioData });
-    } catch (error) {
-        console.error('Error fetching portfolios:', error.message, error.stack);
-        res.status(500).json({ error: 'Error fetching portfolios.' });
-    }
-};
-
 export const show = async (req, res) => {
     const { id } = req.params;
     const parsedId = id;

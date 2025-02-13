@@ -29,10 +29,6 @@ app.use(
 const upload = multer({ dest: path.join(__dirname, "uploads") });
 
 app.use(express.static(path.join(__dirname, 'dist')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
     setHeaders: (res, filePath) => {
@@ -47,7 +43,29 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
 // Routes
 app.use("/api/auth", authRoutes); // Group auth-related routes
 app.use("/api/resumes", resumeRoutes);
+app.get('/api/resumes/portfolios',async (req, res) => {
+    try {
+        const portfolios = await prisma.portfolio.findMany({
+            include: {
+                images: { take: 1 },
+                _count: { select: { likes: true } },
+            },
+        });
 
+        const portfolioData = portfolios.map((portfolio) => ({
+            ...portfolio,
+            image_url: portfolio.images?.[0]?.imageUrl,
+            like_count: portfolio._count.likes,
+            describeYou: portfolio.describeYou,
+        }));
+
+        res.setHeader('Content-Type', 'application/json');
+        res.json({ portfolios: portfolioData });
+    } catch (error) {
+        console.error('Error fetching portfolios:', error.message, error.stack);
+        res.status(500).json({ error: 'Error fetching portfolios.' });
+    }
+});
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

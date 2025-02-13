@@ -12,11 +12,18 @@ export default function Portfolios() {
     useEffect(() => {
         const fetchPortfolios = async () => {
             try {
-                const response = await fetch('http://localhost:5001/api/resumes/portfolios'); // Ensure this matches your backend route
+                const response = await fetch('http://localhost:5001/api/resumes/portfolios'); 
+                console.log("Response Status:", response.status);
+        console.log("Response Content-Type:", response.headers.get("content-type"));
+
+        // Check if the response is JSON
+        if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
                 const data = await response.json();
                 setPortfolios(data.portfolios);
             } catch (error) {
-                console.error('Error fetching portfolios:', error);
+                console.error(error);
                 setError(error.message);
             }finally {
                 setLoading(false);
