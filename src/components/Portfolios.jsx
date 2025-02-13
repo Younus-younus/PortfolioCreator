@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import logo from "../assets/Logo.jpg"
 import { Link } from "react-router-dom";
 import MyLoader from "./MyLoader";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
 export default function Portfolios() {
     const [portfolios, setPortfolios] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ export default function Portfolios() {
     useEffect(() => {
         const fetchPortfolios = async () => {
             try {
-                const response = await fetch('http://localhost:5001/api/resumes/portfolios'); 
+                const response = await fetch(`${API_BASE_URL}/api/resumes/portfolios`); 
                 console.log("Response Status:", response.status);
         console.log("Response Content-Type:", response.headers.get("content-type"));
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
 export default function NewPortfolio() {
     const { isLoggedIn } = useContext(AuthContext);
     const [formData, setFormData] = React.useState({
@@ -39,7 +39,7 @@ export default function NewPortfolio() {
     
         try {
             const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
-            const response = await fetch("http://localhost:5001/api/resumes/new-portfolio", {
+            const response = await fetch(`${API_BASE_URL}/api/resumes/new-portfolio`, {
                 method: "POST",
                 body: data,
                 headers: {

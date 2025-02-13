@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
 export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:5001/api/auth/signup", {
+            const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email,username, password }),

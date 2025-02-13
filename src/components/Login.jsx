@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from 'react-router-dom';
 import './Login.css';
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
 export default function Login() {
     const { login } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +20,7 @@ export default function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:5001/api/auth/login", {
+            const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),

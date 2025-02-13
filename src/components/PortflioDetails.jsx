@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import MyLoader from "./MyLoader";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
 const PortfolioDetails = () => {
     const { id } = useParams(); // Get the dynamic id from the URL
     const [portfolio, setPortfolio] = useState(null);
@@ -12,7 +12,7 @@ const PortfolioDetails = () => {
     useEffect(() => {
         const fetchPortfolio = async () => {
             try {
-                const response = await axios.get(`http://localhost:5001/api/resumes/portfolio/${id}`);
+                const response = await axios.get(`${API_BASE_URL}/api/resumes/portfolio/${id}`);
                 setPortfolio(response.data.portfolio);
             } catch (err) {
                 setError(err.message || "Error fetching portfolio.");
