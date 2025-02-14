@@ -13,7 +13,7 @@ const prisma = new PrismaClient({
 
 dotenv.config(); // Load environment variables
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT =  5001;
 const __dirname = path.resolve();
 
 // Middleware setup

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
-const API_BASE_URL = import.meta.env.API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
 export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");

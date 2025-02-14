@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import logo from "../assets/Logo.jpg"
 import { Link } from "react-router-dom";
 import MyLoader from "./MyLoader";
-const API_BASE_URL = import.meta.env.API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
 export default function Portfolios() {
     const [portfolios, setPortfolios] = useState([]);
     const [loading, setLoading] = useState(true);

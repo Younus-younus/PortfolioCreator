@@ -54,11 +54,10 @@ export const signup = async (req, res) => {
         });
     } catch (error) {
         console.error('Signup error:', error);
-        res.status(400).json({ error: 'User already exists or invalid data' });
+        res.status(400).json({ error });
     }
 };
 
-// Login logic
 // Login logic
 export const login = async (req, res) => {
   const { username, password } = req.body;
@@ -81,14 +80,12 @@ export const login = async (req, res) => {
 
     // Generate a JWT token
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-
     return res.status(200).json({
       message: "Login successful",
       token,
       redirectTo: "/HomePage.jsx",
     });
   } catch (error) {
-    // Handle unexpected errors
     return res.status(500).json({ error });
   }
 };

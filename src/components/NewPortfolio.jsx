@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-const API_BASE_URL = import.meta.env.API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
 export default function NewPortfolio() {
     const { isLoggedIn } = useContext(AuthContext);
     const [formData, setFormData] = React.useState({
