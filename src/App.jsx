@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup"
 import Portfolios from './components/Portfolios';
 import PortfolioDetails from "./components/PortflioDetails";
+import UpdatePortfolio from "./components/UpdatePortfolio";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/portfolio/:id" element={<PortfolioDetails />} />
+                <Route path="/portfolio/:id/edit" element={<UpdatePortfolio />} />
             </Routes>
         </>
     );

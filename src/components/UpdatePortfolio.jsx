@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { useParams } from "react-router-dom";  // Import useParams
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+import MyLoader from "./MyLoader";
 
-export default function NewPortfolio() {
+export default function UpdatePortfolio() {
     const { isLoggedIn } = useContext(AuthContext);
-    const [formData, setFormData] = React.useState({
+    const { id } = useParams();  // Access the ID from the URL
+
+    const [formData, setFormData] = useState({
         name: "",
         describeYou: "",
         description: "",
@@ -20,6 +24,49 @@ export default function NewPortfolio() {
         image: null,
     });
 
+    const [loading, setLoading] = useState(true); // Add a loading state
+
+    useEffect(() => {
+        const fetchPortfolioData = async () => {
+            try {
+                const token = localStorage.getItem("authToken");
+                const response = await fetch(`${API_BASE_URL}/api/resumes/portfolio/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    //setFormData(data);
+                    setFormData({
+                        name: data.name || "",
+                        describeYou: data.describeYou || "",
+                        description: data.description || "",
+                        contact: data.contact || "",
+                        gmail: data.gmail || "",
+                        address: data.address || "",
+                        institute: data.institute || "",
+                        course: data.course || "",
+                        skill: data.skill || "",
+                        interest: data.interest || "",
+                        language: data.language || "",
+                        image: null, // Keep image as null, handle separately
+                    });
+                } else {
+                    console.error("Failed to fetch portfolio data:", response.statusText);
+                    // Consider redirecting to a "not found" page
+                }
+            } catch (error) {
+                console.error("Error fetching portfolio data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPortfolioData();
+    }, [id]); // useEffect runs when the ID changes
+
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         setFormData((prev) => ({
@@ -31,45 +78,50 @@ export default function NewPortfolio() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData();
-        data.append("image", formData.image);
+
+        // Only append the image if a new image is selected
+        if (formData.image) {
+            data.append("image", formData.image);
+        }
+
         Object.keys(formData).forEach((key) => {
             if (key !== "image") {
                 data.append(key, formData[key]);
             }
         });
-    
+
         try {
-            const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
-            const response = await fetch(`${API_BASE_URL}/api/resumes/new-portfolio`, {
-                method: "POST",
+            const token = localStorage.getItem("authToken");
+            const response = await fetch(`${API_BASE_URL}/api/resumes/update-portfolio/${id}`, {  // Use PUT and the ID
+                method: "PUT",
                 body: data,
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`, // Include token in the Authorization header
+                    Authorization: `Bearer ${token}`,
                 },
             });
 
             if (response.ok) {
-                console.log("Form submitted successfully!");
+                console.log("Portfolio updated successfully!");
                 window.location.href = "/"; // Redirect to home
-
             } else {
                 const errorData = await response.json();
-                console.error("Failed to submit portfolio:", errorData.message || response.statusText);
+                console.error("Failed to update portfolio:", errorData.message || response.statusText);
                 window.location.href = "/"; // Redirect to home
             }
         } catch (error) {
-            console.error("Error submitting form:", error);
+            console.error("Error updating form:", error);
             window.location.href = "/"; // Redirect to home
         }
     };
-    
+
+    if (loading) return <><MyLoader></MyLoader></>;
+
 
     return isLoggedIn ? (
         <>
             <div className="offset-2">
                 <form
-                    method="POST"
-                    action="/portfolio"
+                    method="PUT" // Keep the method attribute, but it will be overridden by fetch
                     className="row g-3 needs-validation mx-2 mt-2"
                     noValidate
                     encType="multipart/form-data"
@@ -128,7 +180,7 @@ export default function NewPortfolio() {
                     <div className="col-md-6 position-relative">
                         <br />
                         <label htmlFor="imageform" className="form-label">
-                            Upload Image
+                            Upload Image (Optional)
                         </label>
                         <input
                             className="form-control"
@@ -136,7 +188,6 @@ export default function NewPortfolio() {
                             name="image"
                             type="file"
                             onChange={handleChange}
-                            required
                         />
                         <br />
                     </div>
@@ -288,7 +339,7 @@ export default function NewPortfolio() {
                     <div className="col-12">
                         <br />
                         <button className="btn" style={{ backgroundColor: 'rgb(41, 43, 145)' }} type="submit">
-                            Submit Details
+                            Update Details
                         </button>
                         <br />
                         <br />

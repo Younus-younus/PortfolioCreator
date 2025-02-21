@@ -66,7 +66,7 @@ export default function Portfolios() {
                 <div className="card mb-3 mx-5 lists">
                     <div className="row g-0">
                         <div className="col-md-2">
-                            <img src={`http://localhost:5001/${portfolio.image_url}`} className="img-fluid rounded-start image-porfolio" alt="..." />
+                            <img src={`${API_BASE_URL}/${portfolio.image_url}`} className="img-fluid rounded-start image-porfolio" alt="..." />
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">

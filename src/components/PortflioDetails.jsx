@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import MyLoader from "./MyLoader";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
 
@@ -36,7 +37,7 @@ const PortfolioDetails = () => {
                             portfolio.images.map(image => (
                                 <img
                                     key={image.id}
-                                    src={`http://localhost:5001/${image.imageUrl}`}
+                                    src={`${API_BASE_URL}/${image.imageUrl}`}
                                     alt={image.imageName}
                                     className="image"
                                 />
@@ -90,7 +91,10 @@ const PortfolioDetails = () => {
                 </div>
                 <div className="rightPanel">
                     <div>
-                        <h2>{portfolio.name || "Portfolio Name"}</h2>
+                    <div className="operation-container">
+                    <h2>{portfolio.name || "Portfolio Name"}</h2>
+                    <Link to={`/portfolio/${portfolio.id}/edit`} className="btn btn-danger" id="badge2">Edit</Link>
+            </div>
                         <h5>{portfolio.describeYou || "No description available"}</h5>
                     </div>
                     <div id="contact">

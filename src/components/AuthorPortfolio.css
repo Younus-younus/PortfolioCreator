@@ -139,11 +139,18 @@ button {
     padding-left: 1rem;
 }
 
-
-
-
-
-
+#badge2{
+    color: white !important;
+    border: none;
+    font-size: medium;
+    height: 40px;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+.operation-container {
+        display: flex;
+        flex-direction: row;
+}
 
 
 
